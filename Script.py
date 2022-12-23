@@ -112,7 +112,7 @@ def SignIn(meeting_id, password=None):
         if CheckImg("password2.png",False , False):
             pyautogui.write(password)
             time.sleep(1)
-            ImgAutoClick("passwordJoin.png", pyautogui.click(duration=0.5), False)
+            pyautogui . press( 'enter' )
             time.sleep(1)
     return True
 
@@ -128,6 +128,8 @@ print(
 示例:
 06:40
 123456789
+08:30
+565168496P:12345
 """
 )
 print("读取文件...")
