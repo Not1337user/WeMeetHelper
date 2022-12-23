@@ -69,7 +69,7 @@ def ImgAutoClick(tempFile,whatDo, debug=False):
     
     return True
 
-def CheckImg(tempFile,whatDo, debug=False):
+def CheckImg(tempFile,Click, debug=False):
     pyautogui.moveTo(1,1)
     pyautogui.screenshot('screen.png')
     time.sleep(0.5)
@@ -87,7 +87,7 @@ def CheckImg(tempFile,whatDo, debug=False):
     if(min_val < 1000):
         pyautogui.moveTo(top+h/2, left+w/2)
         time.sleep(0.5)
-        if whatDo:
+        if Click:
             pyautogui.click(duration=0.1)
             print("Success")
         cv2.destroyAllWindows()
@@ -122,7 +122,7 @@ def SignIn(meeting_id, password=None):
 
 print("请在schedule.txt中以以下格式写入时间和会议号")
 print("时间(hh/mm)")
-print("会议号(末尾可加入 A打开摄像头 R开始录制直到下次激活 L离开会议)")
+print("会议号(末尾可加入 A 打开摄像头; R 开始录制直到下次激活; L 离开会议; P:密码 会议密码)")
 print(
 """
 示例:
@@ -204,6 +204,10 @@ while True:
             meeting_id = meeting_id.replace("A", "")
         else :
             Cam_on = False
+        #会议密码
+        if 'P' in meeting_id:
+            password = meeting_id.split('P:',1)[1]
+            meeting_id = meeting_id.split('P:',1)[0]
         #进入会议
         SignIn(meeting_id, str(password))
         print("Sign In!")
