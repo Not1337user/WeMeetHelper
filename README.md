@@ -28,6 +28,8 @@ L
 
 并将script.py中的 audio_input 改为自己的桌面音频捕获设备
 
+ffmpeg: https://github.com/BtbN/FFmpeg-Builds/releases
+
 
 ## GUI
 没有
