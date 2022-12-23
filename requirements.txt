@@ -1,0 +1,5 @@
+opencv-python
+pyautogui
+datetime
+time
+os
